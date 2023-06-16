@@ -5,9 +5,12 @@ using namespace std;
 class chess_board
 {
 private:
-    int sizeX;
-    int sizeY;
-    Organism * worldMesh;
+string **mesh;
+int size1=8;
 public:
-    chess_board(int positionX, int positionY);
+chess_board();
+~chess_board();
+void settingBlackWhite();
+void showingBoard();
+void setElement(int row, int col, const string& value);
 };

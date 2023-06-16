@@ -6,5 +6,8 @@
 using namespace std;
 
 int main(){
+    chess_board chess_board;
+    chess_board.settingBlackWhite();
+    chess_board.showingBoard();
     
 }
