@@ -6,7 +6,7 @@ class chess_board
 {
 private:
 string **mesh;
-int size1=8;
+int size1=9;
 public:
 chess_board();
 ~chess_board();

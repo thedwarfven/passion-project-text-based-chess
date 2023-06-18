@@ -43,11 +43,21 @@ void chess_board::settingBlackWhite(){
         }
         everyOther++;
     }//filling said board with black and white spaces
+    char columns='a';
+    char rows='8';
+    for (int i = 1; i < size1; i++) {
+        mesh[8][i]=columns;
+        columns++;
+    }
+    for (int j = 0; j < size1; j++) {
+        mesh[j][0]=rows;
+        rows--;
+    }
 }
 void chess_board::showingBoard(){
     for (int i = 0; i < size1; i++) {
         for (int j = 0; j < size1; j++) {
-            cout << mesh[i][j];
+            cout << mesh[i][j]<<" ";
         }
         cout << endl;
     }//reading every cell,outputing to terminal
