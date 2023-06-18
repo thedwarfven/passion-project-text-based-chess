@@ -1,6 +1,7 @@
 #include "chess-board.h"
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 chess_board::chess_board(){
@@ -48,11 +49,11 @@ void chess_board::settingBlackWhite(){
     for (int i = 1; i < size1; i++) {
         mesh[8][i]=columns;
         columns++;
-    }
+    }//adding letter for columns
     for (int j = 0; j < size1; j++) {
         mesh[j][0]=rows;
         rows--;
-    }
+    }//adding numbers to rows
 }
 void chess_board::showingBoard(){
     for (int i = 0; i < size1; i++) {

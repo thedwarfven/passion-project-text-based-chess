@@ -1,12 +1,34 @@
 #pragma once
+#ifndef CHESS_PIECE_H
+#define CHESS_PIECE_H
 #include <iostream>
 #include <string>
 using namespace std;
 
 class chess_piece{
+private:
+string whiteAsset[6]{"\u2654","\u2655","\u2656","\u2657","\u2658","\u2659"};
+string blackAsset[6]{"\u265A","\u265B","\u265C","\u265D","\u265E","\u265F"};
 int positionX;
-int positionY;
+char positionY;
 bool blackWhite;
+char pieceType;
+bool firstMove;
 public:
-
+chess_piece();
+chess_piece(int row, char column, bool bW,char pT);
+chess_piece(int row, char column, bool bW,char pT,bool firstMove);
+string outputingToBoard(bool bW,char pT);
+void kingMove();
+void queenMove();
+void bishopMove();
+void knightmove();
+void rookMove();
+void pawnMove();
+void pawnCapture();
+void enpassant();
+void pawnPromotion();
+void checkIfChecked();
+void castle();
 };
+#endif

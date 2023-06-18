@@ -1,4 +1,6 @@
 #pragma once
+#ifndef CHESS_BOARD_H
+#define CHESS_BOARD_H
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,3 +16,4 @@ void settingBlackWhite();
 void showingBoard();
 void setElement(int row, int col, const string& value);
 };
+#endif
