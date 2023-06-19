@@ -1,7 +1,7 @@
 #include "chess-board.h"
 #include <iostream>
 #include <string>
-
+#include <vector>
 using namespace std;
 
 chess_board::chess_board(){
@@ -18,6 +18,26 @@ chess_board::~chess_board(){
             delete[] mesh[i];
         }
         delete[] mesh;
+}
+void chess_board::whiteWriteNotation(string notation){
+    whiteNotation.push_back(notation);
+}
+void chess_board::blackWriteNotation(string notation){
+    blackNotation.push_back(notation);
+}
+void chess_board::showNotation(){
+    std::size_t whiteSize = whiteNotation.size();
+    std::size_t blackSize = blackNotation.size();
+    std::size_t minSize = std::min(whiteSize, blackSize);
+
+    for (std::size_t i = 0; i < minSize; i++) {
+        cout << whiteNotation[i] << " " << blackNotation[i] << " ";
+        cout << endl;
+    }
+    // If whiteNotation has one extra element, print it
+    if (whiteSize > blackSize) {
+        cout << whiteNotation[whiteSize - 1] << " " << endl;
+    }
 }
 void chess_board::settingBlackWhite(){
     int everyOther=0;
