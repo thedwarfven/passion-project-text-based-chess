@@ -20,6 +20,6 @@ void blackWriteNotation(string notation);
 void showNotation();
 void settingBlackWhite();
 void showingBoard();
-void setElement(int row, int col, const string& value);
+void setElement(int row, char c, const string& value);
 };
 #endif

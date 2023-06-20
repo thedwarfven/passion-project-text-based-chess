@@ -84,8 +84,9 @@ void chess_board::showingBoard(){
     }//reading every cell,outputing to terminal
 
 }
-void chess_board::setElement(int row, int col, const string& value) {
+void chess_board::setElement(int row, char c, const string& value) {
+        int col=(int)c - (int)'a' + 1;
         if (row >= 0 && row < size1 && col >= 0 && col < size1) {
-            mesh[row][col] = value;
+            mesh[row-1][col] = value;
         }
     }
