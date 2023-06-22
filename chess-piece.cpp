@@ -32,6 +32,15 @@ chess_piece::chess_piece(int row, char column, bool bW,char pT,bool fM){
 chess_piece::~chess_piece() {
     // Find and remove the current object from the vector
 } 
+chess_piece* findChessPiece(char Y, int X,bool whosTurn) {
+    for (chess_piece* piece : chess_piece::objects) {
+        if (piece->positionY == Y && piece->positionX == X&&piece->blackWhite==whosTurn) {
+            return piece; // Found a matching chess piece
+        }
+    }
+
+    return nullptr; // No matching chess piece found
+}
 int chess_piece::getObjectCount() {
     return objects.size();
 }

@@ -15,6 +15,17 @@ void processChessPieces(chess_board& mainBoard) {
         mainBoard.setElement(positionX,positionY,piece->outputingToBoard(blackWhite,pieceType));
     }
 }
+void makingAMove(chess_board& mainBoard,chess_piece* foundPiece) {
+    chess_piece* piece ; chess_piece::objects;
+    foundPiece=piece;
+        int positionX = piece->positionX;
+        char positionY = piece->positionY;
+        bool blackWhite = piece->blackWhite;
+        char pieceType = piece->pieceType;
+        bool firstMove = piece->firstMove;
+        mainBoard.setElement(positionX,positionY,piece->outputingToBoard(blackWhite,pieceType));
+    
+}
 
 int main(){
     chess_board mainBoard;
@@ -52,6 +63,52 @@ int main(){
     chess_piece bPawn6 (7,'f',false,'p',true);
     chess_piece bPawn7 (7,'g',false,'p',true);
     chess_piece bPawn8 (7,'h',false,'p',true);
-    processChessPieces(mainBoard);
-    mainBoard.showingBoard();
+    int sentinel=0;
+    bool whosTurn=false;
+    char Y;
+    int X;
+    string square;
+    while (sentinel!=4){
+        processChessPieces(mainBoard);
+        cout <<"Welcome to Chess board main UI: \nwhat would you like to do?\n\n[1] Show the current chess board\n\n[2] Show the current notation\n\n[3] Make a move\n\n[4] Quit/surrender\nYour choice:";
+        cin>> sentinel;
+        if (whosTurn==true){
+            whosTurn=false;
+        }
+        else {
+            whosTurn=true;
+        }
+        switch (sentinel)
+        {
+        case 1:
+            mainBoard.showingBoard();
+            break;
+        case 2:
+            mainBoard.showNotation();
+            break;
+        case 3:
+            cout<< "\nselect the square (Ex. a4):";
+            cin>>square;
+            if (square.length() >= 2) {
+        Y = square[0];
+        if (isdigit(square[1])) {
+            X = square[1] - '0';
+        }
+    }
+            chess_piece* foundPiece = findChessPiece(Y, X,whosTurn);
+            if (foundPiece != nullptr) {
+                //continue with the code
+                // Do something with the foundPiece object
+            } else {
+                cout << "No matching chess piece found, please check if it is the right color piece!" << endl;
+            }
+            break;
+        case 4:
+            //exit code 
+            break;
+        default:
+            printf("the option you chose does not exist! Please choose again!\n\n\n");
+            break;
+        }
+    }
 }

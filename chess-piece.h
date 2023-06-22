@@ -23,6 +23,7 @@ chess_piece();
 chess_piece(int row, char column, bool bW,char pT);
 chess_piece(int row, char column, bool bW,char pT,bool firstMove);
 ~chess_piece();
+chess_piece* findChessPiece(char Y, int X);
 static int getObjectCount();
 string outputingToBoard(bool bW,char pT);
 void kingMove();
