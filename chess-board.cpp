@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+
 
 chess_board::chess_board(){
     mesh = new string*[size1];

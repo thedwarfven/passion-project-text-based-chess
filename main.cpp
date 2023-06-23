@@ -3,7 +3,6 @@
 #include <iostream> 
 #include <string>
 #include <vector>
-using namespace std;
 
 void processChessPieces(chess_board& mainBoard) {
     for (chess_piece* piece : chess_piece::objects) {
@@ -62,30 +61,31 @@ int main(){
     chess_piece bPawn7 (7,'g',false,'p',true);
     chess_piece bPawn8 (7,'h',false,'p',true);
     int sentinel=0;
-    bool whosTurn=false;
+    bool whosTurn=true;
     char Y;
     int X;
     string square;
     while (sentinel!=4){
         processChessPieces(mainBoard);
         recordingPiecePosition();
-        cout <<"Welcome to Chess board main UI: \nwhat would you like to do?\n\n[1] Show the current chess board\n\n[2] Show the current notation\n\n[3] Make a move\n\n[4] Quit/surrender\nYour choice:";
-        cin>> sentinel;
+        cout <<"[Welcome to Chess board main UI] \nwhat would you like to do?\n\n[1] Show the current chess board\n\n[2] Show the current notation\n\n[3] Make a move\n\n[4] Quit/surrender\n";
         if (whosTurn==true){
-            whosTurn=false;
+            cout <<"It is currently White's turn\nYour choice:";
         }
-        else {
-            whosTurn=true;
+        else{
+            cout <<"It is currently Black's turn\nYour choice:";
         }
+        cin>> sentinel;
+        
         switch (sentinel)
         {
-        case 1:
+        case 1:{
             mainBoard.showingBoard();
-            break;
-        case 2:
+            break;}
+        case 2:{
             mainBoard.showNotation();
-            break;
-        case 3:
+            break;}
+        case 3:{
             cout<< "\nselect the square (Ex. a4):";
             cin>>square;
             if (square.length() >= 2) {
@@ -101,13 +101,24 @@ int main(){
             } else {
                 cout << "No matching chess piece found, please check if it is the right color piece!" << endl;
             }
-            break;
+            break;}
         case 4:
-            //exit code 
+            if(whosTurn==true){
+                cout<<"Black wins, white surrendered";
+            }
+            else {
+                cout<<"White wins, black surrendered";
+            }
             break;
-        default:
+        default:{
             printf("the option you chose does not exist! Please choose again!\n\n\n");
-            break;
+            break;}
+        if (whosTurn==true){
+            whosTurn=false;
+        }
+        else {
+            whosTurn=true;
+        }
         clearingPiecePosition();
         }
     }

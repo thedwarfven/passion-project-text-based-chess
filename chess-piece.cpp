@@ -97,7 +97,7 @@ string chess_piece::outputingToBoard(bool bW,char pT){
     }
     return "ERROR";
 }
-void chess_piece::kingMove(){
+void chess_piece::kingMove(chess_piece* piece){
     
 }
 void chess_piece::queenMove(){
