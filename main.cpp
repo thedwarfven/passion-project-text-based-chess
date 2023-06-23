@@ -16,14 +16,12 @@ void processChessPieces(chess_board& mainBoard) {
     }
 }
 void makingAMove(chess_board& mainBoard,chess_piece* foundPiece) {
-    chess_piece* piece ; chess_piece::objects;
-    foundPiece=piece;
-        int positionX = piece->positionX;
-        char positionY = piece->positionY;
-        bool blackWhite = piece->blackWhite;
-        char pieceType = piece->pieceType;
-        bool firstMove = piece->firstMove;
-        mainBoard.setElement(positionX,positionY,piece->outputingToBoard(blackWhite,pieceType));
+        int positionX = foundPiece->positionX;
+        char positionY = foundPiece->positionY;
+        bool blackWhite = foundPiece->blackWhite;
+        char pieceType = foundPiece->pieceType;
+        bool firstMove = foundPiece->firstMove;
+        mainBoard.setElement(positionX,positionY,foundPiece->outputingToBoard(blackWhite,pieceType));
     
 }
 
@@ -70,6 +68,7 @@ int main(){
     string square;
     while (sentinel!=4){
         processChessPieces(mainBoard);
+        recordingPiecePosition();
         cout <<"Welcome to Chess board main UI: \nwhat would you like to do?\n\n[1] Show the current chess board\n\n[2] Show the current notation\n\n[3] Make a move\n\n[4] Quit/surrender\nYour choice:";
         cin>> sentinel;
         if (whosTurn==true){
@@ -109,6 +108,7 @@ int main(){
         default:
             printf("the option you chose does not exist! Please choose again!\n\n\n");
             break;
+        clearingPiecePosition();
         }
     }
 }

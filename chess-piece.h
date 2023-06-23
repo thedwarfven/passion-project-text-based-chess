@@ -5,12 +5,12 @@
 #include <string>
 #include<vector>
 using namespace std;
-
+vector<string> allPieceOnBoard;
+vector<bool> bWOfAllPieceOnBoard;
 class chess_piece{
 private:
 string whiteAsset[6]{"\u2654","\u2655","\u2656","\u2657","\u2658","\u2659"};
 string blackAsset[6]{"\u265A","\u265B","\u265C","\u265D","\u265E","\u265F"};
-
 
 public:
 int positionX;
@@ -37,5 +37,7 @@ void enpassant();
 void pawnPromotion();
 void checkIfChecked();
 void castle();
+void recordingPiecePosition();
+void clearingPiecePosition();
 };
 #endif

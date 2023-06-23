@@ -98,7 +98,7 @@ string chess_piece::outputingToBoard(bool bW,char pT){
     return "ERROR";
 }
 void chess_piece::kingMove(){
-
+    
 }
 void chess_piece::queenMove(){
 
@@ -129,4 +129,18 @@ void chess_piece::checkIfChecked(){
 }
 void chess_piece::castle(){
 
+}
+void recordingPiecePosition() {
+    for (chess_piece* piece : chess_piece::objects) {
+        int positionX = piece->positionX;
+        char positionY = piece->positionY;
+        bool blackWhite = piece->blackWhite;
+        string result=positionY+to_string(positionX);
+        allPieceOnBoard.push_back(result);
+        bWOfAllPieceOnBoard.push_back(blackWhite);
+    }
+}
+void clearingPiecePosition(){
+    allPieceOnBoard.clear();
+    bWOfAllPieceOnBoard.clear();
 }
